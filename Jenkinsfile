@@ -27,9 +27,9 @@ pipeline {
         sh 'ls'
       }
     }
-    stage('Deploy for v.*') {
+    stage('Deploy for release/*') {
       when {
-        tag 'v.*'
+        branch 'release/*'
       }
       steps {
         sh 'ls'
