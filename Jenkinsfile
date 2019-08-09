@@ -1,14 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage('myStage-Test'){
-      steps {
-        sh 'ls -la' 
-        echo "GIT_COMMIT is ${env.GIT_COMMIT}"
-        echo "GIT_COMMIT[0..7] is ${env.GIT_COMMIT[0..7]}"
-        echo "BUILD_ID is ${env.BUILD_ID}"
-      }
-    }
+    stage('Test') {
+            agent {
+                dockerfile {
+                    dir 'scripts/agents'
+                    args """
+                        -v /home/pcr/workspace/build_cache/pcr-web/node_modules:/root/workspace/pcr-web/node_modules
+                        -v /home/pcr/workspace/pcr-reports:/root/workspace/pcr-reports
+                    """
+                }
+            }
+            when {
+                beforeAgent true
+                branch 'master'
+            }
+            steps {
+                sh 'ls'   
+            }
+        }
     stage('Build') {
       agent any
       when {
