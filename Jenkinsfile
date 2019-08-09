@@ -6,6 +6,7 @@ pipeline {
         sh 'ls -la' 
         echo "GIT_COMMIT is ${env.GIT_COMMIT}"
         echo "GIT_COMMIT[0..7] is ${env.GIT_COMMIT[0..7]}"
+        echo "BUILD_ID is ${env.BUILD_ID}"
       }
     }
     stage('Build') {
