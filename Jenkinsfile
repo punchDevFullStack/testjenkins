@@ -10,8 +10,19 @@ pipeline {
       }
     }
     stage('Build') {
-      steps { 
-        sh 'ls' 
+      agent any
+      when {
+        beforeAgent true
+        branch 'release/*'
+      }
+      steps {
+        sh """
+          docker build \
+              -f ./Dockerfile \
+              -t digi/digi-web:latest \
+              -t digi/digi-web:${env.GIT_COMMIT[0..7]} \
+              .
+        """
       }
     }
     stage('Deliver for development') {
