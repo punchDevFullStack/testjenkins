@@ -5,10 +5,6 @@ pipeline {
             agent {
                 dockerfile {
                     dir 'scripts/agents'
-                    args """
-                        -v /home/pcr/workspace/build_cache/pcr-web/node_modules:/root/workspace/pcr-web/node_modules
-                        -v /home/pcr/workspace/pcr-reports:/root/workspace/pcr-reports
-                    """
                 }
             }
             when {
