@@ -54,6 +54,7 @@ pipeline {
       }
       steps {
         sh 'ls'
+        sh 'echo env.BRANCH_NAME'
       }
     }
   }
