@@ -55,6 +55,7 @@ pipeline {
       steps {
         sh 'ls'
         sh 'echo Branch Name: $BRANCH_NAME'
+        sh 'ls'
       }
     }
   }
