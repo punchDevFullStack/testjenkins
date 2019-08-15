@@ -12,7 +12,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh 'ls'   
+                sh 'ls' 
+                sh 'echo env.BRANCH_NAME'  
             }
         }
     stage('Build') {
