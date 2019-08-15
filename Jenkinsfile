@@ -49,9 +49,9 @@ pipeline {
     //   }
     // }
     stage('Deploy for release/*') {
-      when {
-        // branch 'release/*'
-      }
+      // when {
+      //   branch 'release/*'
+      // }
       steps {
         sh 'ls'
         sh 'echo Branch Name: $BRANCH_NAME'
