@@ -49,9 +49,10 @@ pipeline {
     //   }
     // }
     stage('Deploy for release/*') {
-      // when {
-      //   branch 'release/*'
-      // }
+      when {
+        branch 'release/*'
+        environment name: 'DEPLOY_TO', value: 'release/RELEASE'
+      }
       steps {
         sh 'ls'
         sh 'echo Branch Name: $BRANCH_NAME'
