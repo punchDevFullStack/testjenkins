@@ -50,7 +50,7 @@ pipeline {
     // }
     stage('Deploy for release/*') {
       when {
-        branch 'release/*'
+        // branch 'release/*'
       }
       steps {
         sh 'ls'
