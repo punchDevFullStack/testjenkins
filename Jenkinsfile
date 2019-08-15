@@ -49,6 +49,9 @@ pipeline {
     //   }
     // }
     stage('Deploy for release/*') {
+      when {
+        expression { BRANCH_NAME ==~ /(master)/ }
+      }
       steps {
         sh 'ls'
         sh 'echo Branch Name: $BRANCH_NAME'
