@@ -50,7 +50,7 @@ pipeline {
     // }
     stage('Deploy for release/*') {
       when {
-        expression { BRANCH_NAME ==~ /(master)/ }
+        tag 'release-19.08.01'
       }
       steps {
         sh 'ls'
